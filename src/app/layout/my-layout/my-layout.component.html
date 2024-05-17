@@ -1,0 +1,80 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav custom-sidebar" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+      <mat-toolbar class="customToolbar">Human Resource</mat-toolbar>
+      <mat-nav-list>
+        <ng-container>
+          @if (role==="ADMIN") {
+            <mat-expansion-panel class="custom-expansion-panel">
+              <mat-expansion-panel-header>
+                <mat-panel-title> <i class="fa-solid fa-gear"></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Manage Command</mat-panel-title>
+              </mat-expansion-panel-header>
+              <mat-nav-list class="custom-dropdown-links">
+                <a mat-list-item routerLink="command"> <i class="fa-solid fa-circle-notch"></i>
+                  &nbsp;&nbsp; command</a>
+                <a mat-list-item routerLink="district"> <i class="fa-solid fa-circle-notch"></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;District</a>
+                  <a mat-list-item routerLink="station"> <i class="fa-solid fa-circle-notch"></i>
+                    &nbsp;&nbsp;&nbsp;&nbsp;station</a>
+              </mat-nav-list>
+            </mat-expansion-panel>
+            <a mat-list-item routerLink="register"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Register User</a>
+            <a mat-list-item routerLink="userlist"><i class="fa-solid fa-list"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;userlist</a>
+
+      <a mat-list-item routerLink="staff"><i class="fa-solid fa-person-circle-plus"></i>
+        &nbsp;&nbsp;&nbsp;&nbsp;Staff</a>
+        <a mat-list-item routerLink="courses"><i class="fa-solid fa-person-circle-plus"></i>
+          &nbsp;&nbsp;&nbsp;&nbsp;Courses</a>
+  
+
+      
+          } @else if (role==="USER") {
+            <a mat-list-item routerLink="staff-profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff profiles</a>
+            <a mat-list-item routerLink="staff-course"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff Course</a>
+
+
+          }
+
+        </ng-container>
+        
+
+           
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="customToolbar">
+      @if (isHandset$ | async) {
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      }
+      <span >Huma Resource</span>
+      <button mat-icon-button [matMenuTriggerFor]="messagesMenu" class="right-links">
+        <img src="assets/image/avater.png" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+      </button>
+      <mat-menu #messagesMenu="matMenu" class="dropdown-menu-lg">
+        <button mat-menu-item>
+          <div class="media">
+            <h3 class="dropdown-item-title">
+              {{ firstName }}
+            </h3>
+            <button mat-raised-button color="primary" (click)="onLogOut()">
+              <i class="fa-solid fa-power-off"></i></button>
+          </div>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <div class="container-fluid mt-4">
+      <router-outlet />
+
+</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

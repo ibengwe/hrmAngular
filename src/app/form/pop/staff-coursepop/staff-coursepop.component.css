@@ -1,0 +1,5 @@
+.btn-close{
+    position: absolute;
+    top: 10px; /* Adjust this value to position vertically */
+    right: 10px; /* Adjust this value to position horizontally */
+}

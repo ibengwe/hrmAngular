@@ -1,0 +1,50 @@
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+form {
+    max-width: 400px; /* Increase the form width */
+    padding: 40px; /* Increase the form padding */
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #fff;
+}
+.input-icon {
+    position: relative;
+}
+.input-icon i {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+input {
+    width: 100%;
+    margin-bottom: 20px; /* Increase the margin between input fields */
+    padding: 12px; /* Increase the input field padding */
+    padding-left: 40px; /* Adjust padding to accommodate the icon */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Make the input fields circular */
+    outline: none;
+}
+button {
+    width: 100%;
+    padding: 12px; /* Increase the button padding */
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    /* cursor: pointer; */
+}
+button:hover {
+    background-color: #0056b3;
+}
+img {
+    max-width: 100px; /* Decrease the maximum width of the image */
+    height: auto;
+}
