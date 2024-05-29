@@ -1,0 +1,101 @@
+<!-- {{staffId}}
+<mat-card>
+    <mat-card-header>
+        <h2 mat-dialog-title style="text-align: center;"> REGISTRATION FORM</h2>
+        <div>
+        </div>
+    </mat-card-header>
+    <mat-card-content >
+        <div class="container">
+            <form autocomplete="off" >
+                <div class="row mb-3">
+                    <label for="inputRole" class="col-sm-2 col-form-label">comment</label>
+                    <div class="col-md-6">
+                        <label class="small mb-1" for="inputPhone">Comments</label>
+                        <input class="form-control"  type="text" placeholder="Enter Comments" [(ngModel)]="commentByOcs" name="commentByOcs" >
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="inputRole" class="col-sm-2 col-form-label">status</label>
+                    <div class="col-md-6">
+                        <select class="form-control" id="inputRole" disabled [(ngModel)]="status" name="status">
+                            <option value="OCS">OCS</option>
+                          </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-outline-success" (click)="save()" ><i class="fa-solid fa-floppy-disk"></i>save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+</mat-card>
+
+ -->
+
+
+ <form (ngSubmit)="save()">
+    <div class="container-xl px-4 mt-4">
+    <!-- <hr class="mt-0 mb-4"> -->
+    <div class="row">
+       
+        
+        <div class="col">
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">staff Id</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter staffId" [(ngModel)]="staffId"  name="staffId" disabled >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">course name</label>
+                                <input class="form-control"  type="text" placeholder="Course name" [(ngModel)]="courseName"  name="courseName"  disabled >
+                            </div>
+                        </div>
+
+                        
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Comment by Ocs</label>
+                                <input class="form-control"  type="text" placeholder="Comment by Ocs" [(ngModel)]="commentByOcs"  name="commentByOcs"   >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Comment By Ocd</label>
+                                <input class="form-control"  type="text" placeholder="Comment by Ocd" [(ngModel)]="commentByOcd"  name="commentByOcd" disabled >
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">Comment by Rpc</label>
+                                <input class="form-control"  type="text" placeholder="Comment by Rpc" [(ngModel)]="commentByRpc"  name="commentByRpc" disabled >
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Comment By Commissioner</label>
+                                <input class="form-control"  type="text" placeholder="Comment by Commissioner" [(ngModel)]="commentByCommissioner"  name="commentByCommissioner" disabled >
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputOrgName">statust</label>
+                                <input class="form-control"  type="text"  placeholder="status" [(ngModel)]="status"  name="status"   >
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        <button class="btn btn-primary" type="submit" >Save changes</button>
+
+
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

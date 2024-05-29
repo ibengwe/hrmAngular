@@ -40,5 +40,12 @@ export class CoursepopComponent implements OnInit{
     this.dialgRef.close("dialog has been closed");
   }
 
-  save(){}
+  save(){
+    const values=this.courseForm.value;
+    this.cs.add(values).subscribe({
+      next:(resp:any)=>{
+        console.table(resp)
+      }
+    })
+  }
 }

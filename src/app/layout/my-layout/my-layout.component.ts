@@ -34,13 +34,16 @@ export class MyLayoutComponent {
       .subscribe(res=>{
         let nameFromToken=this.auth.getNameFromeToken();
         this.firstName=res || nameFromToken;
-        
       });
 
       this.store.getRoleFromStore()
       .subscribe(resp=>{
-        let roleFromToken=this.auth.getRoleFromToken();
-        this.role=resp||roleFromToken
+        // let roleFromToken=this.auth.getRoleFromToken();
+        // this.role=resp||roleFromToken
+        this.role=resp||this.auth.getRoleFromToken();
+
+
+
       }); 
 
       this.store.getStaffIdFromStore().subscribe({

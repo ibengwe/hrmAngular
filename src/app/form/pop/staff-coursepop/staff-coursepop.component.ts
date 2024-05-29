@@ -4,6 +4,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Courses } from '../../../model/courses';
 import { DistrictService } from '../../../SERVICE/district.service';
 import { CommandService } from '../../../SERVICE/command.service';
+import { CourseService } from '../../../SERVICE/course.service';
+import { AuthService } from '../../../SERVICE/auth.service';
+import { StoreService } from '../../../SERVICE/store.service';
+import { StaffCourseService } from '../../../SERVICE/staff-course.service';
 
 @Component({
   selector: 'app-staff-coursepop',
@@ -14,12 +18,18 @@ export class StaffCoursepopComponent implements OnInit {
   staffCourseForm!:FormGroup
   courseList: any;
   crudeMode!: string;
-  commandList: any;
+  staffId!:any
+  courseId:any
+
+  selectedFile!: File;
+
 
   constructor(
     private dialgRef:MatDialogRef<StaffCoursepopComponent>,
-    private ds:DistrictService,
-    private cs:CommandService,
+    private cs:CourseService,
+    private sc:StaffCourseService,
+    private auth:AuthService,private store:StoreService,
+
     @Inject (MAT_DIALOG_DATA) private data:{crudeMode:string,course:Courses},
    
     ){
@@ -27,24 +37,34 @@ export class StaffCoursepopComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.formControll();
     console.log("passed values are =>",this.data)
     this.crudeMode=this.data.crudeMode
-    // this.district=this.data.district
     this.setFormValues();
+    this.loadCourse();
 
-    this.loadCommand();
+    this.store.getStaffIdFromStore().subscribe({
+      next:(resp:any)=>{
+        const staffIdFromToken=this.auth.getUserIdFromeToken();
+        this.staffId=resp||staffIdFromToken
+
+      }
+    })
+
+
+  }
+  loadCourse() {
+    this.cs.getAllCourses().subscribe({
+      next:(resp:any)=>{
+        console.table(resp)
+        this.courseList=resp
+
+      }
+    })
+
   }
   setFormValues() {
   }
-  formControll() {
-    this.staffCourseForm=new FormGroup({
-      districtName:new FormControl('',Validators.required),
-      commandId:new FormControl('',Validators.required),
-
-
-    })
-  }
+  
 
   close(){
     this.popClose();
@@ -54,20 +74,33 @@ export class StaffCoursepopComponent implements OnInit {
     this.dialgRef.close("dialog has been closed");
   }
 
-  save(){}
-  loadCommand() {
-    this.cs.getAllCommand().subscribe({
-      next:(resp:any)=>{
-        console.table(resp)
-        this.commandList=resp
-      }
-    
-    })
-  
-  
-    
-    
+  onFileChanged(event:any) {
+    this.selectedFile = event.target.files[0];
   }
+  
+
+  save(){
+    // const value=this.staffCourseForm.value;
+    // console.table(value)
+    const formData=new FormData();
+    formData.append('staffId', this.staffId);
+    formData.append('courseId', this.courseId);
+    formData.append('certificate', this.selectedFile);
+
+    this.sc.add(formData).subscribe({
+      next:(resp:any)=>{
+        console.table(formData)
+
+      }
+    })
+
+
+  }
+  
+  
+    
+    
+  
   
   }
 

@@ -15,17 +15,17 @@ export class CourseService {
 
 
   add(course:Courses){
-    const url=`${this.apiUrl+"v1/admin/course"}`;
+    const url=`${this.apiUrl+"v1/auth/course"}`;
     return this.http.post(url,course)
   }
 
   getAllCourses(){
-    const url=`${this.apiUrl+"v1/admin/course"}`;
+    const url=`${this.apiUrl+"v1/auth/course"}`;
     return this.http.get(url);
   }
 
   update(courseId:number,course:Courses){
-    const url=`${this.apiUrl+"v1/admin/command"}/${courseId}`;
+    const url=`${this.apiUrl+"v1/auth/course"}/${courseId}`;
     return this.http.put(url,course);
   }
 

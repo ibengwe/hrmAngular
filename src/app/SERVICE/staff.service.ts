@@ -13,7 +13,7 @@ export class StaffService {
   http=inject(HttpClient)
 
 
-  add(staff:Staff){
+  add(staff:any){
     const url=`${this.apiUrl+"v1/auth/staff"}`;
     return this.http.post(url,staff)
   }

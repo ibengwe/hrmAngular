@@ -13,6 +13,11 @@ import { UserProfilesComponent } from './components/user-profiles/user-profiles.
 import { StaffProfilesComponent } from './components/staff-profiles/staff-profiles.component';
 import { StaffCourseComponent } from './components/staff-course/staff-course.component';
 import { CoursesComponent } from './components/courses/courses.component';
+import { OcsComponent } from './components/ocs/ocs.component';
+import { OcdComponent } from './components/ocd/ocd.component';
+import { RpcComponent } from './components/rpc/rpc.component';
+import { CommissionerComponent } from './components/commissioner/commissioner.component';
+import { OcsEditComponent } from './components/ocs-edit/ocs-edit.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -27,7 +32,17 @@ const routes: Routes = [
     {path:"station",component:StationComponent},
     {path:"courses",component:CoursesComponent},
     {path:"staff",component:ManageStaffComponent},
+    {path:"ocs",component:OcsComponent},
+    {path:"ocd",component:OcdComponent},
+    {path:"rpc",component:RpcComponent},
+    {path:"com",component:CommissionerComponent},
+
+
     {path:"user-profile/:id",component:UserProfilesComponent},
+    // {path:"ocs-edit/:id",component:OcsEditComponent},
+    { path: "ocs-edit/:staffId/:courseId", component: OcsEditComponent },
+
+
     {path:"staff-profile",component:StaffProfilesComponent},
     {path:"staff-course",component:StaffCourseComponent},
 

@@ -1,3 +1,4 @@
+{{staffId}}
 <mat-card>
     <mat-card-header>
         <h2 mat-dialog-title style="text-align: center;"> REGISTRATION FORM</h2>
@@ -8,32 +9,34 @@
     </mat-card-header>
     <mat-card-content >
         <div class="container">
-            <form autocomplete="off" [formGroup]="staffCourseForm">
-
-                <!-- <div class="form-group"> -->
+            <form autocomplete="off" >
                 <div class="row mb-3">
-                    <label for="firstname" class="col-sm-2 col-form-label">District </label>
+                    <label for="inputRole" class="col-sm-2 col-form-label">course</label>
                     <div class="col-sm-10">
-                        <input type="email" class="form-control" id="firstname" formControlName="districtName" >
-                    </div>
-                </div>
-
-                <div class="row mb-3">
-                    <label for="inputRole" class="col-sm-2 col-form-label">Command</label>
-                    <div class="col-sm-10">
-                      <select class="form-control"  formControlName="commandId">
-                        @for (command of commandList; track command.commandId) {
-                            <option [value]="command.commandId">{{command.commandName}}</option>
+                      <select class="form-control" [(ngModel)]="courseId" name="courseId">
+                        @for (course of courseList; track course.courseId) {
+                            <option [value]="course.courseId">{{course.courseName}}</option>
                         
 
                         }
                       </select>
                     </div>
-                  </div>
-                <!-- </div> -->
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputRole" class="col-sm-2 col-form-label">documents</label>
+                    <div class="col-sm-10">
+                        <button mat-raised-button color="white">
+                            <input type="file" (change)="onFileChanged($event)">
+                        </button>
+                    </div>
+                    
+                </div>
+
+                  
                 <div class="row">
                     <div class="col-md-6">
-                        <button type="submit" class="btn btn-outline-success" (click)="save()" [disabled]="staffCourseForm.invalid"><i class="fa-solid fa-floppy-disk"></i>save</button>
+                        <button type="submit" class="btn btn-outline-success" (click)="save()" ><i class="fa-solid fa-floppy-disk"></i>save</button>
                     </div>
                 </div>
             </form>

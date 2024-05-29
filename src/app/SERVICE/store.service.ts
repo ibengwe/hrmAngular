@@ -14,6 +14,7 @@ export class StoreService {
   public getRoleFromStore(){
     return this.role$.asObservable();
   }
+  
 
   public setRoleForStore(role:string){
     this.role$.next(role);

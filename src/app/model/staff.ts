@@ -4,8 +4,8 @@ export interface Staff {
      firstName:any;
      middleName:any;
      lastName:any;
-    ateBirth:any;
-    ateEnlist:any;
+    dateBirth:any;
+    dateEnlist:any;
      gender:any;
      phoneNumber:any;
      image:any;

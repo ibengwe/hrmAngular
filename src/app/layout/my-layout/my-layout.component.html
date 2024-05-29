@@ -31,7 +31,21 @@
   
 
       
-          } @else if (role==="USER") {
+          } 
+          @else if (role==="OCS") {
+            <a mat-list-item routerLink="staff-profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff profiles</a>
+            <a mat-list-item routerLink="staff-course"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff Course</a>
+
+
+          }
+
+          @else if (role==="OCD") {
+            <a mat-list-item routerLink="staff-profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff profiles</a>
+            <a mat-list-item routerLink="staff-course"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff Course</a>
+
+
+          }
+          @else if (role==="USER") {
             <a mat-list-item routerLink="staff-profile"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff profiles</a>
             <a mat-list-item routerLink="staff-course"><i class="fa-solid fa-user"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;staff Course</a>
 

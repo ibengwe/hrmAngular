@@ -30,7 +30,6 @@ this.formData();
     this.loginForm=new FormGroup({
       email:new FormControl('',Validators.required),
       password:new FormControl('',Validators.required),
-
     })
   }
 
@@ -48,11 +47,26 @@ this.formData();
 
           if (tokenPayload.role == 'USER') {
             this.router.navigate(['staff-profile'])
-
-          } else if (tokenPayload.role == 'ADMIN') {
+          } 
+          else if (tokenPayload.role == 'ADMIN') {
             this.router.navigate(['register'])
-          }
+          } 
+          else if(tokenPayload.role == 'OCS'){
+            this.router.navigate(['ocs']) 
+          } 
+          else if(tokenPayload.role == 'OCD'){
+            this.router.navigate(['ocd'])  
 
+
+          }
+          else if(tokenPayload.role == 'RPC'){
+            this.router.navigate(['rpc'])  
+
+          }
+          else if(tokenPayload.role == 'COM'){
+            this.router.navigate(['com'])  
+
+          }
         },
         error: (err) => {
           this.toastr.error("login failed")

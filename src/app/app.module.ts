@@ -40,6 +40,12 @@ import { StaffCourseComponent } from './components/staff-course/staff-course.com
 import { CoursesComponent } from './components/courses/courses.component';
 import { CoursepopComponent } from './form/pop/coursepop/coursepop.component';
 import { StaffCoursepopComponent } from './form/pop/staff-coursepop/staff-coursepop.component';
+import { ImagedialogComponent } from './imagedialog/imagedialog.component';
+import { OcsComponent } from './components/ocs/ocs.component';
+import { OcdComponent } from './components/ocd/ocd.component';
+import { RpcComponent } from './components/rpc/rpc.component';
+import { CommissionerComponent } from './components/commissioner/commissioner.component';
+import { OcsEditComponent } from './components/ocs-edit/ocs-edit.component';
 
 
 
@@ -68,7 +74,13 @@ import { StaffCoursepopComponent } from './form/pop/staff-coursepop/staff-course
     StaffCourseComponent,
     CoursesComponent,
     CoursepopComponent,
-    StaffCoursepopComponent
+    StaffCoursepopComponent,
+    ImagedialogComponent,
+    OcsComponent,
+    OcdComponent,
+    RpcComponent,
+    CommissionerComponent,
+    OcsEditComponent
   ],
   imports: [
     BrowserModule,
